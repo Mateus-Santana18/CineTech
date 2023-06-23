@@ -57,10 +57,11 @@ let invalido = document.getElementById("invalidez")
 
     }
 
-    let emailLogar = document.getElementById("emailLogin").value
-    let senhaLogar = document.getElementById("senhaLogin").value
-    let invalidezLogar = document.getElementById("invalidezLogin").value
+
     function logar(){
+        let emailLogar = document.getElementById("emailLogin").value
+        let senhaLogar = document.getElementById("senhaLogin").value
+        let invalidezLogar = document.getElementById("invalidezLogin").value
 
         for(i = 0; i < usuarios.length; i++){
 
