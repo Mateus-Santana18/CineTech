@@ -58,29 +58,30 @@ let invalido = document.getElementById("invalidez")
     }
 
 
-    function logar(){
+    function logarConta(){
         let emailLogar = document.getElementById("emailLogin").value
         let senhaLogar = document.getElementById("senhaLogin").value
-        let invalidezLogar = document.getElementById("invalidezLogin").value
+        let loginIncorreto = document.getElementById("invalidezLogin")
 
         for(i = 0; i < usuarios.length; i++){
 
-            if(usuarios[i].nome == emailLogar && usuarios[i].senha == senhaLogar){
-
-            }else if(usuarios[i].nome != emailLogar && usuarios[i].senha == senhaLogar){
-                invalidezLogar.innerHTML = ""
-                invalidezLogar.innerHTML = "Usuário inválido"
-            }if(usuarios[i].nome == emailLogar && usuarios[i].senha != senhaLogar) {
-                invalidezLogar.innerHTML = ""
-                invalidezLogar.innerHTML = "Senha inválida"
+            if(usuarios[i].email === emailLogar && usuarios[i].senha === senhaLogar){
+                
+            }else if(usuarios[i].email != emailLogar && usuarios[i].senha == senhaLogar){
+                loginIncorreto.innerHTML = ""
+                loginIncorreto.innerHTML = "Usuário inválido"
+            }else if(usuarios[i].email == emailLogar && usuarios[i].senha != senhaLogar) {
+                loginIncorreto.innerHTML = ""
+                loginIncorreto.innerHTML = "Senha inválida"
             }else{
-                invalidezLogar.innerHTML = ""
-                invalidezLogar.innerHTML = "Dados inválidos"
+                loginIncorreto.innerHTML = ""
+                loginIncorreto.innerHTML = "Dados inválidos"
             }
 
         }
-    
+
     }
+    
         
     
     
