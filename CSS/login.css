@@ -6,7 +6,7 @@
 }
 
 
-    /* CSS LOGIN */
+   
 
 html{
 
@@ -94,6 +94,12 @@ body{
     justify-content: center;
     flex-direction: column;
 }
+
+#invalidezLogin{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
 ::placeholder{
     padding-left: 3px;
     color: #fff;
@@ -106,10 +112,15 @@ body{
     padding-top: 24px;
     cursor: pointer;
     font-family: 'Netflix Sans';
+    color: #fff;
 }
 #cadastroLogin:hover{
     font-size: 25px;
 }
+#cadastroLogin{
+    cursor: pointer;
+}
+
 
 #meioCentralBaixo{
 
@@ -119,9 +130,7 @@ body{
     flex-direction: column;
     font-size: 150%;
 }
-.baixoLogin{
-    
-}
+
 #btnLogar{
     
     font-size: 16px;

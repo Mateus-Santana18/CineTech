@@ -98,14 +98,15 @@ body{
     font-family: 'Netflix Sans';
     padding-left: 12px;
 }
-#cadastroLogin{
+#botaoCadastrar{
     /* COLOCAR LINK PARA PÁGINA DE CADASTRO NO JS */
     font-size: 20px;
     padding-top: 24px;
     cursor: pointer;
     font-family: 'Netflix Sans';
+    color: #fff;
 }
-#cadastroLogin:hover{
+#botaoCadastrar:hover{
     font-size: 25px;
 }
 

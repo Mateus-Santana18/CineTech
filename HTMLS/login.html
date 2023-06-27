@@ -6,37 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../CSS/login.css">
-    <link rel="stylesheet" href="../CSS/cadastro.css">
 </head>
 <body>
     <div id="containerLogin">
+
         <div id="cima">
 
         </div>
+
         <div id="meio">
             
             <div id="meioCentral">
+
                 <div id="meioCentralCima">
-                    <label for="">Login</label>
+
+                    <label>Login</label>
+
                 </div>
                 <div id="meioCentralMeio">
+
                     <div class="inptLogin">
+
                         <input class="inpts" type="text" placeholder="Email" id="emailLogin">
+
                     </div>
+
                     <div class="inptLogin">
+
                         <input type="password" class="inpts" placeholder="Senha" id="senhaLogin">
+
                     </div>
- 
+
                 </div>
+
                 <div id="invalidezLogin">
                         
-                </div>     
+                </div>  
+
                 <div id="meioCentralBaixo">
                     
                     <button  id="btnLogar" onclick="logarConta()">Entrar</button>
                  
                     <label id="cadastroLogin" onclick="cadastrarConta()">Não possui cadastro ?</label>
-                    
                     
                 </div>
             </div>
@@ -47,47 +58,6 @@
         </div>
 
     </div>
-    <div id="containerCadastro">
-        <div id="cimaCadastro">
-
-        </div>
-        <div id="meioCadastro">
-            
-            <div id="meioCentralCadastro">
-                <div id="meioCentralCimaCadastro">
-                    <label for="">Cadastro</label>
-                </div>
-                <div id="meioCentralMeioCadastro">
-                    <div class="inptCadastro">
-                        <input class="inptsCadastro" type="text" placeholder="Email" id="emailCadastro">
-                    </div>
-                    <div class="inptCadastro">
-                        <input type="password" class="inptsCadastro" placeholder="Senha" id="senhaCadastro">
-                    </div>
-                    <div class="inptCadastro">
-                        <input type="password" class="inptsCadastro" placeholder="Confirme sua senha" id="confirmSenhaCadastro">
-                    </div>
-                    <div class="inptCadastro">
-                        <input type="tel" class="inptsCadastro" placeholder="(00) 00000 - 0000" id="telefoneCadastro">
-                    </div>
-                    <div id="invalidez">
-
-                    </div>
-                </div>
-                <div id="meioCentralBaixoCadastro">
-                    
-                    <button  id="btnCadastrar" onclick="cadastrar()">Cadastrar</button>
-                                                                         
-                </div>
-            </div>
-            
-        </div>
-        <div id="baixoCadastro">
-            
-        </div>
-
-    </div>
-
-    <script src="../JS/loginCadastro.js"></script>
+    <script src="../JS/script.js"></script>
 </body>
 </html>
