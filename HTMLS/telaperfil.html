@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tela de perfil</title>
+    <link rel="stylesheet" href="../CSS/telaperfil.css">
+</head>
+
+<body>
+
+    <div id="container">
+
+
+        <div id="divTopo">
+
+
+        </div>
+
+        <div id="divMeio">
+                <div id="brecha"></div>
+
+
+                    <div id="meioEsquerda">
+                        <img  class="imgPerfil"  src="../Imagens/managerperfil.png" alt="">   
+                        <input type="text" placeholder="E-mail" class="inptPerfil">
+                        <input type="password" placeholder="Senha" class="inptPerfil">
+                        <input type="text" placeholder="Telefone" class="inptPerfil">
+                    </div>
+
+                <div id="brecha"></div>
+
+                    <div id="meioDireita">
+                        <img src="../Imagens/carticonred.png" id="perfil"alt="" class="imgPerfil">
+                        <label for="" class="labelCarrinho">Filme selecionado</label>
+                        <input type="text"class="inptPerfil">
+                        <label for="" class="labelCarrinho">Assento selecionado</label>
+                        <input type="text"class="inptPerfil">
+                        <label for="" class="labelCarrinho">Preço total</label>
+                        <input type="text"class="inptPerfil">
+                    </div>
+                <div id="brecha"></div>
+
+        </div>
+        <div id="divFina"></div>
+        <div id="divFim">
+            <div id="divlarga"></div>
+
+                <div id="fimEsquerdo">
+
+                    <button class="botaoFim" onclick="">Salvar</button>
+
+                </div>
+                <div id="divlarga"></div>
+  
+                <div id="fimDireito">
+
+                    <button class="botaoFim" onclick="">Reservas</button>
+                    <button class="botaoFim" onclick="">Editar Assentos</button>
+
+                </div>
+                <div id="divlarga"></div>
+
+        </div>
+
+
+    </div>
+    <script src="../JS/script.js"></script>
+    <script>
+        carregarPerfil()
+    </script>
+
+</body>
+</html>

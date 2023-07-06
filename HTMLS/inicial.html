@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>carrinho</title>
+    <title>Cinepop</title>
     <link rel="stylesheet" href="../CSS/inicial.css">
 </head>
 <body>
@@ -12,14 +12,13 @@
 
     <div id="topo">
         <div id="topoTitulo">
+            <img src="../Imagens/pipocaInicial.png" id="pipocaTitulo">
             <label>Cinepop</label>
-
         </div>
 
         <div id="topoDireita">
-            <button onclick="login()" class="btn">login</button>
-            <button onclick="cadastro()" class="btn">cadastro</button>
-            <img src= "../Imagens/Carrinho.png" id="imgCarrinho">
+            <button onclick="login()" id="btnLogin">login</button>
+            <img src= "../Imagens/ImagemDoUsuario.png" alt="" id="imgCarrinho">
 
         </div>
     </div>
@@ -29,7 +28,7 @@
         <img src="../Imagens/Vingadores.jpg" id="img">
         
     </div>
-    <div id="containerSeta">
+    <div id="divSeta">
 
         <div class="blocoSeta">
             <button class="liso botaoFlecha" onclick="voltarImg()">
@@ -49,11 +48,18 @@
         </div>
     </div>
     <div id="baixo">
+        <div id="baixoCima">
+            <button onclick="linkPageFilmes()"id="btnFilmes">Filmes</button>
 
+        </div>
+        <div id="baixoBaixo">
+            <label id="nomeGrupo">CineTech</label>
+            <img src="../Imagens/instagramRed.jpg" alt="" class="logoBaixo">
+            <img src="../Imagens/linkedin-icon-8-256.png" alt="" class="logoBaixo">
+
+        </div>
     </div>
 </div>
-
-    <script src="../JS/script.js"></script>    
-
+<script src="../JS/script.js"></script>
 </body>
 </html>

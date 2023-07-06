@@ -1,0 +1,156 @@
+@font-face {
+
+    font-family: 'Netflix Sans';
+    font-weight: 100;
+    font-display: optional;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff2) format('woff2'),url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff) format('woff') }
+
+html{
+
+    height: 100%;
+
+}
+body{
+
+    height: 100%;
+    margin: 0%;
+
+}
+#container{
+
+    width: 100%;
+    height: 100%;
+    background-color: black;
+
+}
+#topo{
+   
+    height: 15%;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    
+}
+#meio{
+
+    width: 100%;
+    height: 70%;
+    display: flex;
+    background-color: black;
+    
+}
+#meioEsquerda{
+    
+    background-color: rgb(39, 39, 39);     
+    width: 32%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-family:Netflix Sans; 
+
+}
+#divImagens{
+
+    width: 50%;
+    height: 50%;
+    background-color: black;
+
+}
+
+#labelTitulo{
+
+    font-size: 35px;
+    color: white;
+
+}
+#labelSinopse{
+
+    font-size: 15px;
+    color: white;
+    width: 80%;
+
+}
+#meioCentral{
+
+    background-color: rgb(39, 39, 39);    
+    width: 32%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family:Netflix Sans;
+
+}
+#meioDireita{
+
+    background-color: rgb(39, 39, 39);    
+    width: 32%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; 
+    font-family:Netflix Sans;
+}
+.imgMeio{
+
+    width: 100%;
+    height: 100%;
+    justify-content:center;
+    align-items: center;
+    display: flex;
+
+}
+#clasificacao{
+
+    width: 10%;
+    height: 10%;
+
+}
+#topoTitulo{
+
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 1, 1);
+    font-size: 85px;
+    font-family:Netflix Sans; 
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    
+}
+#divBrecha{
+
+    width: 1%;
+    height: 100%;
+    background-color: black;
+
+}
+#divBrechaBaixo{
+
+    height: 1%;
+    background-color: black;
+}
+#baixo{
+
+    display: flex;
+    justify-content: space-around;
+}
+.btnCompra{
+    background-color: red;
+    border: 0px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-family:Netflix Sans;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 45px;
+}
