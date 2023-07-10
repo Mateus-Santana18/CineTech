@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tela de perfil</title>
     <link rel="stylesheet" href="../CSS/telaperfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 </head>
 
 <body>
@@ -14,8 +15,10 @@
 
 
         <div id="divTopo">
-
-
+            <div id="esquerdaTopo"></div>
+            <div id="direitaTopo">
+                <img src="../Imagens/sair.jpg" id="botaoSair" alt="">
+            </div>
         </div>
 
         <div id="divMeio">
@@ -23,22 +26,30 @@
 
 
                     <div id="meioEsquerda">
-                        <img  class="imgPerfil"  src="../Imagens/managerperfil.png" alt="">   
-                        <input type="text" placeholder="E-mail" class="inptPerfil">
-                        <input type="password" placeholder="Senha" class="inptPerfil">
-                        <input type="text" placeholder="Telefone" class="inptPerfil">
+                        <div id="inptsCima">
+
+                            <img  class="imgPerfil"  src="../Imagens/managerperfil.png"  onclick="" alt="" >   
+                            <input type="text" placeholder="Nome" class="inptPerfil" id="inptNomeUsuario" oninput="editarInpts()">
+                            <input type="text" placeholder="E-mail" class="inptPerfil" id="inptEmailUsuario" oninput="editarInpts()">
+                            <input type="text" placeholder="Endereço" class="inptPerfil" id="inptEnderecoUsuario" oninput="editarInpts()">
+                            <input type="text" placeholder="Telefone" class="inptPerfil" id="inptTelUsuario" oninput="editarInpts()" maxlength="15">
+                        </div>
+                        <div id="revelarSenha">
+                            <input type="password" placeholder="Senha" class="inptPerfil" id="inptSenhaUsuario" oninput="editarInpts()">
+                            <i class="far fa-eye" id="aparecerSenha"></i>
+                        </div>
                     </div>
 
                 <div id="brecha"></div>
 
                     <div id="meioDireita">
-                        <img src="../Imagens/carticonred.png" id="perfil"alt="" class="imgPerfil">
+                        <img src="../Imagens/carticonred.png" id="perfil" alt="" class="imgPerfil">
                         <label for="" class="labelCarrinho">Filme selecionado</label>
-                        <input type="text"class="inptPerfil">
+                        <input type="text"class="inptPerfil" id="inptFilmeSelecionado">
                         <label for="" class="labelCarrinho">Assento selecionado</label>
-                        <input type="text"class="inptPerfil">
+                        <input type="text"class="inptPerfil" id="inptAssentoReservado">
                         <label for="" class="labelCarrinho">Preço total</label>
-                        <input type="text"class="inptPerfil">
+                        <input type="text"class="inptPerfil" id="inptPrecoTotal">
                     </div>
                 <div id="brecha"></div>
 
@@ -49,15 +60,16 @@
 
                 <div id="fimEsquerdo">
 
-                    <button class="botaoFim" onclick="">Salvar</button>
+                    <button id="salvarMudancas" onclick="salvarEdicoes()" disabled>Salvar</button>
+                    <button class="botaoFim" onclick="">Deletar</button>
 
                 </div>
                 <div id="divlarga"></div>
   
                 <div id="fimDireito">
 
-                    <button class="botaoFim" onclick="">Reservas</button>
-                    <button class="botaoFim" onclick="">Editar Assentos</button>
+                    <button class="botaoFim"  onclick="">Reservas</button>
+                    <button class="botaoFim" onclick="editarAssentos()">Editar Assentos</button>
 
                 </div>
                 <div id="divlarga"></div>
@@ -69,6 +81,53 @@
     <script src="../JS/script.js"></script>
     <script>
         carregarPerfil()
+
+
+const togglePassword = document.querySelector('#aparecerSenha');
+const password = document.querySelector('#inptSenhaUsuario');
+
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+
+
+
+
+function mascara(o,f){
+
+v_obj=o
+v_fun=f
+setTimeout("execmascara()",1)
+}
+function execmascara(){
+
+v_obj.value=v_fun(v_obj.value)
+
+}
+function mtel(v){
+
+v=v.replace(/\D/g,""); // Tira tudo q n é numero <:
+v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); // Por ( ) em Volta dos 2 primeiros numeros<:
+v=v.replace(/(\d)(\d{4})$/,"$1-$2"); //Colocar - entre o 4  o 5 numero <:
+return v;
+
+}
+function id( el ){
+
+return document.getElementById( el );
+
+}
+window.onload = function(){
+
+id('inptTelUsuario').onkeyup = function(){
+    mascara( this, mtel );
+
+}
+}
     </script>
 
 </body>

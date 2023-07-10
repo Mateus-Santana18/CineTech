@@ -1,0 +1,118 @@
+@font-face {
+
+    font-family: 'Netflix Sans';
+    font-weight: 100;
+    font-display: optional;
+     src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff2) format('woff2'),url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff) format('woff') 
+
+} 
+html{
+
+    height: 100%;
+    
+}
+body{
+
+    height: 100%;
+    margin: 0%;
+
+}
+#container{
+
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+
+}
+#cima{
+
+    width: 100%;
+    height: 10%;
+
+
+}
+#meio{
+
+    width: 100%;
+    height: 70%;
+    display: flex;
+
+}
+#meioEsquerda{
+
+    width: 37%;
+    height: 100%;
+
+}
+#meioCentral{
+
+    width: 26%;
+    height: 100%;
+    background-color: #333;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+
+}
+#HistoricoCompra{
+
+    width: 100%;
+    height: 80%;
+
+}
+#lblHis{
+
+    font-family: 'Netflix Sans';
+    color: #fff;
+    font-size: 45px;
+
+
+}
+#meioDireita{
+
+
+    width: 37%;
+    height: 100%;
+
+}
+
+#baixo{
+
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botaoHistorico{
+
+    display: flex;
+    width: 20%;
+    height: 20%;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    padding-right: 5px;
+    background-color: red;
+    color: #fff;
+    border: 0px;
+    cursor: pointer;
+    margin-top: 25px;
+
+}
+#intervalo{
+
+    width: 33%;
+    height: 100%;
+
+}
+#meioBaixo{
+
+    width: 34%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+}

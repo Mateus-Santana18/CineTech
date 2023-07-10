@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../CSS/cadastro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 </head>
 <body>
     <div id="containerCadastro">
@@ -16,23 +17,31 @@
             
             <div id="meioCentralCadastro">
                 <div id="meioCentralCimaCadastro">
-                    <label for="">Cadastro</label>
+                    <label>Cadastro</label>
                 </div>
                 <div id="meioCentralMeioCadastro">
+                    <div class="inptCadastro">
+                        <input id="nomeCadastro" class="inptsCadastro" type="text" placeholder="Nome Completo">
+                    </div>
                     <div class="inptCadastro">
                         <input id="emailCadastro" class="inptsCadastro" type="text" placeholder="Email">
                     </div>
                     <div class="inptCadastro">
+                        <input id="enderecoCadastro" class="inptsCadastro" type="text" placeholder="Endereço">
+                    </div>
+                    <div class="inptCadastro">
+                        <input id="telefoneCadastro" type="text" class="inptsCadastro" placeholder="(00) 00000 - 0000" maxlength="15">
+                    </div> 
+                    <div class="inptCadastro">
                         <input id="senhaCadastro" type="password" class="inptsCadastro" placeholder="Senha">
+                        <i class="far fa-eye" id="aparecerSenha"></i>
                     </div>
                     <div class="inptCadastro">
                         <input id="confirmSenhaCadastro" type="password" class="inptsCadastro" placeholder="Confirme sua senha">
+                        <i class="far fa-eye" id="aparecerSenhaConfirm"></i>
                     </div>
-                    <div class="inptCadastro">
-                        <input id="telefoneCadastro" type="number" class="inptsCadastro" placeholder="(00) 00000 - 0000">
-                    </div>
+                    
                     <div id="invalidezCadastro">
-
                     </div>
                 </div>
                 <div id="meioCentralBaixoCadastro">
@@ -50,5 +59,66 @@
     </div>
 
     <script src="../JS/script.js"></script>
+    <script>
+
+const togglePassword = document.querySelector('#aparecerSenha');
+const password = document.querySelector('#senhaCadastro');
+
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+
+const senhaRevelada = document.querySelector('#aparecerSenhaConfirm');
+const senha = document.querySelector('#confirmSenhaCadastro');
+
+  senhaRevelada.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = senha.getAttribute('type') === 'password' ? 'text' : 'password';
+    senha.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+
+
+
+
+        // Modelo do telefone
+        function mascara(o,f){
+
+            v_obj=o
+            v_fun=f
+            setTimeout("execmascara()",1)
+        }
+        function execmascara(){
+
+            v_obj.value=v_fun(v_obj.value)
+
+        }
+        function mtel(v){
+
+            v=v.replace(/\D/g,""); // Tira tudo q n é numero <:
+            v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); // Por ( ) em Volta dos 2 primeiros numeros<:
+            v=v.replace(/(\d)(\d{4})$/,"$1-$2"); //Colocar - entre o 4  o 5 numero <:
+            return v;
+
+        }
+        function id( el ){
+
+            return document.getElementById( el );
+
+        }
+        window.onload = function(){
+
+            id('telefoneCadastro').onkeyup = function(){
+                mascara( this, mtel );
+
+            }
+        }
+
+    </script>
 </body>
 </html>
