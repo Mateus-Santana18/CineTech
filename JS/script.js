@@ -387,8 +387,28 @@ function editarInpts(){
 }
 
 function salvarEdicoes(){
+
+    let nomeCompleto = document.getElementById("inptNomeUsuario").value
+    let email = document.getElementById("inptEmailUsuario").value
+    let endereco = document.getElementById("inptEnderecoUsuario").value
+    let telefone = document.getElementById("inptTelUsuario").value
+    let senhaCadastro = document.getElementById("inptSenhaUsuario").value
+
+    let usuarioLocalStorage = JSON.parse(localStorage.getItem('usuarioSalvo'))
+    let usuario = {
+        // ...usuarioLocalStorage,
+        nomeCadastrado: nomeCompleto,
+        emailCadastrado: email,
+        enderecoCadastrado: endereco,
+        telefoneCadastrado : telefone,
+        senhaCadastrada: senhaCadastro,
+
+    }
+    console.log(usuario);
+    
     editarBotao.style.backgroundColor = "black"
     editarBotao.style.border = "2px solid white"
+    
 }
 
 function direcionarPerfil(){
