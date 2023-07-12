@@ -96,6 +96,8 @@ function logarConta(){
 
     }
 
+    
+
 }
 
     // Tela Cadastro
@@ -372,20 +374,14 @@ let editarBotao = document.getElementById("salvarMudancas")
 
 function editarInpts(){
 
-    // let emailMudar = document.getElementById('inptEmailUsuario')
-    // let senhaMudar = document.getElementById('inptSenhaUsuario')
-    // let telefoneMudar = document.getElementById('inptTelUsuario')
-
-
     editarBotao.style.backgroundColor = "red"
     editarBotao.style.border = "0px"
     editarBotao.disabled = false
 
-    
-
-
 }
 
+
+// Editar dados na página de perfil
 function salvarEdicoes(){
 
     let nomeCompleto = document.getElementById("inptNomeUsuario").value
@@ -394,22 +390,100 @@ function salvarEdicoes(){
     let telefone = document.getElementById("inptTelUsuario").value
     let senhaCadastro = document.getElementById("inptSenhaUsuario").value
 
-    let usuarioLocalStorage = JSON.parse(localStorage.getItem('usuarioSalvo'))
-    let usuario = {
-        // ...usuarioLocalStorage,
-        nomeCadastrado: nomeCompleto,
-        emailCadastrado: email,
-        enderecoCadastrado: endereco,
-        telefoneCadastrado : telefone,
-        senhaCadastrada: senhaCadastro,
+    let usuarios = JSON.parse(localStorage.getItem('usuarioSalvo')) || []
+    let emailLogado = JSON.parse(localStorage.getItem("usuarioLogado"))
+    for(i = 0; i < usuarios.length; i++){
+
+        if(emailLogado == usuarios[i].emailCadastrado){
+
+            usuarios[i].nomeCadastrado = nomeCompleto
+            usuarios[i].emailCadastrado = email
+            usuarios[i].enderecoCadastrado = endereco 
+            usuarios[i].telefoneCadastrado = telefone
+            usuarios[i].senhaCadastrada = senhaCadastro 
+            localStorage.setItem('usuarioLogado', JSON.stringify(usuarios[i].emailCadastrado))
+             
+
+        }
+
 
     }
-    console.log(usuario);
-    
+    localStorage.setItem('usuarioSalvo', JSON.stringify(usuarios))
+    console.log(usuarios);
+
     editarBotao.style.backgroundColor = "black"
     editarBotao.style.border = "2px solid white"
     
 }
+
+// Deletar conta na página de perfil
+
+function deletarUsuario(){
+
+    let usuarios = JSON.parse(localStorage.getItem('usuarioSalvo')) || []
+    let emailLogado = JSON.parse(localStorage.getItem("usuarioLogado"))
+    let posicaoDeletar
+    for(i = 0; i < usuarios.length; i++){
+
+        if(emailLogado == usuarios[i].emailCadastrado){
+
+            posicaoDeletar = i
+            
+
+        }
+
+
+    }
+    let pergunta = prompt("Deseja mesmo deletar? S/N")
+    if(pergunta == "S"){
+
+        usuarios.splice(posicaoDeletar, 1)
+        alert("Deletado!!!")
+        localStorage.setItem('usuarioLogado', '')  
+        localStorage.setItem('usuarioSalvo', JSON.stringify(usuarios))  
+        window.location.href = "../HTMLS/inicial.html"
+
+    }
+
+}
+
+// Deslogar Conta
+
+function deslogarConta(){
+
+    let usuarios = JSON.parse(localStorage.getItem('usuarioSalvo')) || []
+    let emailLogado = JSON.parse(localStorage.getItem("usuarioLogado"))
+    
+    for(i = 0; i < usuarios.length; i++){
+
+        if(emailLogado == usuarios[i].emailCadastrado){
+
+            
+            localStorage.setItem('usuarioLogado', '')   
+            window.location.href = "../HTMLS/inicial.html"
+            
+
+        }
+
+
+    }
+    
+}
+
+// Aparecer nome em vez de LOGIN
+
+function aparecerNome(){
+    let emailLogado = JSON.parse(localStorage.getItem("usuarioLogado"))
+    if(emailLogado != ""){
+
+        document.getElementById('btnLogin').innerHTML = `Olá ${emailLogado}`
+
+    }else{
+        document.getElementById('btnLogin').innerHTML = `Login`
+    }
+}
+
+
 
 function direcionarPerfil(){
 

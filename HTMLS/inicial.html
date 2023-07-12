@@ -7,7 +7,7 @@
     <title>Cinepop</title>
     <link rel="stylesheet" href="../CSS/inicial.css">
 </head>
-<body>
+<body onload="aparecerNome()">
 <div id="container">
 
     <div id="topo">
@@ -17,7 +17,7 @@
         </div>
 
         <div id="topoDireita">
-            <button onclick="login()" id="btnLogin">login</button>
+            <label onclick="login()" id="btnLogin">login</label>
             <img src= "../Imagens/ImagemDoUsuario.png" alt="" id="imgCarrinho" onclick="direcionarPerfil()">
 
         </div>
