@@ -17,14 +17,17 @@ body {
 
 .assento{
     background-color: #444451;
-    height: 14px;
-    width: 17px;
-    margin: 3px;
+    height: 28px;
+    width: 30px;
+    margin: 6px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     font-size: 10px;
     color: #fff;
     text-align: center;
+}
+.fontAssentos{
+    font-size: 20px;
 }
 
 .linha{
@@ -32,7 +35,8 @@ body {
 }
 
 .filme-container{
-    margin: 20px
+    margin: 20px;
+    font-size: 30px;
 }
 
 .filme-container select{
@@ -95,7 +99,7 @@ body {
 .tela{
     background-color: white;
     height: 70px;
-    width: 200px;
+    width: 365px;
     margin: 15px 0;
     transform: rotatex(-45deg);
     box-shadow: 0 3px 10px rgb(255, 255, 255, 0.75);

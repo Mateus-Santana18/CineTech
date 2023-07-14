@@ -259,6 +259,9 @@ function atualizarPoltrona(iFilme){
     
 }
 
+let precoAssentosA = 0
+let precoAssentosB = 0
+let totalAssentos = 0
 
 // Pintar a cadeira
 
@@ -271,6 +274,10 @@ function selecionarCadeira(cadeira){
 let preco = 10
 let listaAssentos = document.getElementById("contagemAssento")
 let totalPreco = document.getElementById("total")
+emailLogado = JSON.parse(localStorage.getItem("usuarioLogado"))
+usuarios = JSON.parse(localStorage.getItem('usuarioSalvo')) || []
+
+let posicaoUsuario
 
     if(cinema[0].assentosDisponiveis.includes(cadeira)){
         console.log(cadeirasSelecionadas);
@@ -282,26 +289,45 @@ let totalPreco = document.getElementById("total")
             cadeirasSelecionadas.splice(cadeirasSelecionadas.indexOf(cadeira), 1)
         }
     
-        somaAssentos = cadeirasSelecionadas.length * preco
-        
+        posicaoUsuario = posicaoUsuarioLogado()
+        // for(i = 0; i < usuarios[posicaoUsuario].filme.cadeiras; i++){
+        // usuarios[posicaoUsuario].filme.valor 
+        // }
+        precoAssentosA = cadeirasSelecionadas.length * preco
+        precoAssentos = usuarios[posicaoUsuario].filme.cadeiras.length * preco 
+        totalAssentos = precoAssentosA + precoAssentosB
         listaAssentos.innerHTML = cadeirasSelecionadas
-        totalPreco.innerHTML = somaAssentos
+        totalPreco.innerHTML = totalAssentos
+        console.log(totalAssentos);
     }
 
-
+    localStorage.setItem("usuarioSalvo", JSON.stringify(usuarios))
 
 }
 
+// Descobrir a posição do usuario
+function posicaoUsuarioLogado(){
+    emailLogado = JSON.parse(localStorage.getItem("usuarioLogado"))
+    usuarios = JSON.parse(localStorage.getItem('usuarioSalvo')) || []
+
+    for(i = 0; i < usuarios.length; i++){
+        if(emailLogado == usuarios[i].emailCadastrado){
+            return i
+        }
+    }
+}
 
 // Direcionar para a página do usuário
 function reservarAssentos(){
 
+    usuarios = JSON.parse(localStorage.getItem('usuarioSalvo')) || []
+    posicaoUsuario = posicaoUsuarioLogado()
+    usuarios[posicaoUsuario].filme.valor = totalAssentos
     let comprinha = {
         nomeFilme: 'Os vingadores',
         cadeiras: cadeirasSelecionadas,
-        valor: somaAssentos
+        valor: usuarios[posicaoUsuario].filme.valor
     }
-    usuarios = JSON.parse(localStorage.getItem('usuarioSalvo')) || []
     emailLogado = JSON.parse(localStorage.getItem("usuarioLogado"))
     for(i = 0; i < usuarios.length; i++){
         
@@ -315,8 +341,11 @@ function reservarAssentos(){
     for(i = 0; i < cadeirasSelecionadas.length; i++){
 
         let indice = cinema[0].assentosDisponiveis.indexOf(cadeirasSelecionadas[i])
-        cinema[0].assentosDisponiveis.splice(indice, 1)
-        localStorage.setItem("cinema", JSON.stringify(cinema))
+        if(indice != -1){
+
+            cinema[0].assentosDisponiveis.splice(indice, 1)
+            localStorage.setItem("cinema", JSON.stringify(cinema))
+        }
     }
     
     
@@ -366,6 +395,7 @@ function carregarPerfil(){
 function editarAssentos(){
 
     window.location.href = "../HTMLS/assentosSA.html"
+    
 
 }
 
@@ -462,6 +492,10 @@ function deslogarConta(){
             localStorage.setItem('usuarioLogado', '')   
             window.location.href = "../HTMLS/inicial.html"
             
+            
+        }else{
+
+            window.location.href = "../HTMLS/inicial.html"
 
         }
 
@@ -490,6 +524,133 @@ function direcionarPerfil(){
     window.location.href = "../HTMLS/telaperfil.html"
 
 }
+
+
+function linkHistorico(){
+
+    window.location.href = "../HTMLS/historico.html"
+
+}
+
+function listarHistorico(){
+    
+    let emailLogado = JSON.parse(localStorage.getItem("usuarioLogado"))
+    
+    let usuarios = JSON.parse(localStorage.getItem('usuarioSalvo')) || []
+    
+
+    let divList = document.getElementById('historicoCompra')
+    let listaReservas, produtoDiv
+
+    while(divList.firstChild){
+
+        divList.removeChild(divList.firstChild);
+
+    }
+
+    for (i = 0; i < usuarios.length; i++){
+
+        let nomeFilmes = document.createTextNode(usuarios[i].filme.nomeFilme)
+        let cadeiraFilmes = document.createTextNode(usuarios[i].filme.cadeiras)
+        let valorFilmes = document.createTextNode(usuarios[i].filme.valor)
+
+        // Variável de produto recebe uma div nova (criada)
+        listaReservas = document.createElement('div')
+
+        divList.appendChild(listaReservas)
+
+            // Define para essa div uma class chamada Produtos
+            listaReservas.classList = ('Reservas')
+
+            // Define para essa div um id chamado Produtos(posição)
+            listaReservas.id = (`Reservas${i}`)
+            if(usuarios[i].filme.valor != 0){
+
+            // Cria um laço de repetição para pegar os dados dos produtos e mostrar separadamente
+            for (j=0; j < 5; j++){
+
+                // Variável de produto recebe uma div nova (criada)
+                produtoDiv = document.createElement('div')
+
+                // Adiciona na div produtoLista (como div filha) essa nova div criada
+                listaReservas.appendChild(produtoDiv)
+
+                // Define para essa div uma class chamada Divs
+                produtoDiv.classList = ('Divs')
+
+               // Utiliza valor de j no loop, para adicionar os dados dos produtos na div
+               switch(j){
+
+                // Na primeira passada do loop
+                case 0:
+
+                    // Define uma div filha que recebe o código do produto
+                    produtoDiv.appendChild(nomeFilmes)
+                    break
+
+                // Na segunda passada do loop
+                case 1:
+
+                    // Define uma div filha que recebe o nome do produto
+                    produtoDiv.appendChild(cadeiraFilmes)
+                    break
+
+                // Na terceira passada do loop
+                case 2:
+
+                    // Define uma div filha que recebe a marca do produto
+                    produtoDiv.appendChild(valorFilmes)
+                    break
+
+                    
+                }
+            
+
+            }        
+        }else if(usuarios[i].filme.valor == 0){
+            document.getElementById('historicoCompra').style.color = "#fff"
+            document.getElementById('historicoCompra').style.fontSize = "30px"
+            document.getElementById('historicoCompra').style.marginTop = "30px"
+            document.getElementById('historicoCompra').style.fontFamily = "Netflix Sans"
+            divList.innerHTML = "Histórico vazio!!"
+            
+        }
+        }
+    }
+
+
+    function apagarHistorico(){
+
+        let emailLogado = JSON.parse(localStorage.getItem("usuarioLogado"))
+        let usuarios = JSON.parse(localStorage.getItem('usuarioSalvo')) || []
+        posicaoUsuario = posicaoUsuarioLogado()
+
+        for(i = 0; i < usuarios[posicaoUsuario].filme.cadeiras.length; i++){
+            cinema[0].assentosDisponiveis.push(usuarios[posicaoUsuario].filme.cadeiras[i])
+        }
+        
+
+            
+
+                usuarios[posicaoUsuario].filme.nomeFilme = '' 
+                usuarios[posicaoUsuario].filme.cadeiras = [] 
+                usuarios[posicaoUsuario].filme.valor = 0 
+
+           
+
+        
+
+        localStorage.setItem('cinema', JSON.stringify(cinema))
+        localStorage.setItem('usuarioSalvo', JSON.stringify(usuarios))
+
+    }
+
+    function voltarPerfil(){
+
+        window.location.href = "../HTMLS/telaperfil.html"
+
+    }
+
 
 
 

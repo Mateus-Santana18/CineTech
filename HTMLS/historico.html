@@ -10,7 +10,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>historico</title>
+    <title>Histórico</title>
     
     <link rel="stylesheet" href="../CSS/historico.css">
 
@@ -30,8 +30,14 @@
             </div>
 
             <div id="meioCentral">
-                <label for="" id="lblHis">Histórico</label>
-                <div id="HistoricoCompra"></div>
+                <!-- <label for="" id="lblHis">Histórico</label> -->
+                <img src="../Imagens/listalinda.png" alt="" id="imgLista">
+                
+                <div id="historicoCompra">
+
+
+
+                </div>
             </div>
 
             <div id="meioDireita">
@@ -46,8 +52,9 @@
 
             </div>
             <div id="meioBaixo">
-                <button onclick="" class="botaoHistorico">Apagar</button>
-                <button onclick="" class="botaoHistorico">Perfil</button>
+                <button onclick="listarHistorico()" class="botaoHistorico">Listar</button>
+                <button onclick="apagarHistorico()" class="botaoHistorico">Apagar</button>
+                <button onclick="voltarPerfil()" class="botaoHistorico">Perfil</button>
 
             </div>
             <div id="intervalo">
@@ -58,6 +65,6 @@
 
     </div>
 
+    <script src="../JS/script.js"></script>
 </body>
-
 </html>
