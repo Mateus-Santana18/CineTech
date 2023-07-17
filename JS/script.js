@@ -431,13 +431,13 @@ function salvarEdicoes(){
             usuarios[i].enderecoCadastrado = endereco 
             usuarios[i].telefoneCadastrado = telefone
             usuarios[i].senhaCadastrada = senhaCadastro 
-            localStorage.setItem('usuarioLogado', JSON.stringify(usuarios[i].emailCadastrado))
-             
-
+            
+            
         }
-
-
+        
+        
     }
+    localStorage.setItem('usuarioLogado', JSON.stringify(usuarios[posicaoUsuarioLogado()].emailCadastrado))
     localStorage.setItem('usuarioSalvo', JSON.stringify(usuarios))
     console.log(usuarios);
 
@@ -508,12 +508,15 @@ function deslogarConta(){
 
 function aparecerNome(){
     let emailLogado = JSON.parse(localStorage.getItem("usuarioLogado"))
-    if(emailLogado != ""){
+    let usuarios = JSON.parse(localStorage.getItem("usuarioSalvo"))
+    for(i = 0; i < usuarios.length; i++){
+        if(emailLogado == usuarios[i].emailCadastrado){
 
         document.getElementById('btnLogin').innerHTML = `Olá ${emailLogado}`
 
-    }else{
+        }else{
         document.getElementById('btnLogin').innerHTML = `Login`
+        }
     }
 }
 
