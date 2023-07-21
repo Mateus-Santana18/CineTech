@@ -52,9 +52,8 @@ body{
 }
 .imgPerfil{
     
-    width: 20%;
-    height: 21%;
-    border-radius: 100%;
+    width: 15%;
+    height: 18%;
     display: flex;
     margin-top: 10px;
 
@@ -98,6 +97,7 @@ body{
     font-family: 'Netflix Sans';
     color: #fff;
     margin-top: 35px;
+    font-size: 25px;
 
 }
 #divFina{
@@ -133,15 +133,16 @@ body{
 
     display: flex;
     width: 20%;
-    height: 40%;
+    height: 60%;
     border-radius: 4px;
     justify-content: center;
     align-items: center;
     padding-right: 5px;
-    background-color: red;
+    background-color: #800000;
     color: #fff;
     border: 0px;
     cursor: pointer;
+    font-size: 20px;
 
 }
 #brecha{
@@ -159,11 +160,12 @@ body{
 
     margin-top: 27px;
 
+
 }
 #salvarMudancas{
 
     width: 20%;
-    height: 40%;
+    height: 60%;
     border: 2px solid white;
     border-radius: 4px;
     align-items: center;
@@ -171,6 +173,7 @@ body{
     background-color: black;
     color: #fff;
     cursor: pointer;
+    font-size: 20px;
 
 }
 #esquerdaTopo{
@@ -189,7 +192,7 @@ body{
 
     width: 11%;
     height: 45%;
-    border-radius: 100%;
+    
     justify-content: center;
     align-items: center;
     padding-right: 5px;

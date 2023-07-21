@@ -3,7 +3,7 @@
     
     // Tela Inicial
 
-    let listaImagem = ['../Imagens/Vingadores.jpg','../Imagens/Mario.jpg','../Imagens/FastAndFurious.jpg']
+    let listaImagem = ['../Imagens/avengers.jpg','../Imagens/marioo.jpg','../Imagens/fast_and_furious_8_poster.jpg']
 
     let indexAtual = 0
     let imagem = document.getElementById("img")
@@ -509,15 +509,15 @@ function deslogarConta(){
 function aparecerNome(){
     let emailLogado = JSON.parse(localStorage.getItem("usuarioLogado"))
     let usuarios = JSON.parse(localStorage.getItem("usuarioSalvo"))
-    for(i = 0; i < usuarios.length; i++){
-        if(emailLogado == usuarios[i].emailCadastrado){
+
+        if(emailLogado == usuarios[posicaoUsuarioLogado()].emailCadastrado){
 
         document.getElementById('btnLogin').innerHTML = `Olá ${emailLogado}`
 
         }else{
         document.getElementById('btnLogin').innerHTML = `Login`
         }
-    }
+    
 }
 
 
@@ -557,58 +557,61 @@ function listarHistorico(){
         let cadeiraFilmes = document.createTextNode(usuarios[i].filme.cadeiras)
         let valorFilmes = document.createTextNode(usuarios[i].filme.valor)
 
-        // Variável de produto recebe uma div nova (criada)
+        
         listaReservas = document.createElement('div')
 
         divList.appendChild(listaReservas)
 
-            // Define para essa div uma class chamada Produtos
+            
             listaReservas.classList = ('Reservas')
 
-            // Define para essa div um id chamado Produtos(posição)
+            
             listaReservas.id = (`Reservas${i}`)
             if(usuarios[i].filme.valor != 0){
 
-            // Cria um laço de repetição para pegar os dados dos produtos e mostrar separadamente
+            
             for (j=0; j < 5; j++){
 
-                // Variável de produto recebe uma div nova (criada)
+                
                 produtoDiv = document.createElement('div')
 
-                // Adiciona na div produtoLista (como div filha) essa nova div criada
+                
                 listaReservas.appendChild(produtoDiv)
 
-                // Define para essa div uma class chamada Divs
+                
                 produtoDiv.classList = ('Divs')
 
-               // Utiliza valor de j no loop, para adicionar os dados dos produtos na div
+               
                switch(j){
 
-                // Na primeira passada do loop
+                
                 case 0:
 
-                    // Define uma div filha que recebe o código do produto
+                    
                     produtoDiv.appendChild(nomeFilmes)
                     break
 
-                // Na segunda passada do loop
+                
                 case 1:
 
-                    // Define uma div filha que recebe o nome do produto
+                    
                     produtoDiv.appendChild(cadeiraFilmes)
                     break
 
-                // Na terceira passada do loop
+                
                 case 2:
 
-                    // Define uma div filha que recebe a marca do produto
+                    
                     produtoDiv.appendChild(valorFilmes)
                     break
 
                     
                 }
             
-
+                document.getElementById('historicoCompra').style.color = "#fff"
+                document.getElementById('historicoCompra').style.fontSize = "30px"
+                document.getElementById('historicoCompra').style.marginTop = "30px"
+                document.getElementById('historicoCompra').style.fontFamily = "Netflix Sans"
             }        
         }else if(usuarios[i].filme.valor == 0){
             document.getElementById('historicoCompra').style.color = "#fff"

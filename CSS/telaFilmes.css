@@ -67,7 +67,7 @@ body{
 }
 #labelSinopse{
 
-    font-size: 15px;
+    font-size: 17px;
     color: white;
     width: 80%;
 
@@ -143,14 +143,19 @@ body{
     justify-content: space-around;
 }
 .btnCompra{
-    background-color: red;
+    width: 95px;
+    height: 50px;
+    background-color: #800000;
     border: 0px;
-    border-radius: 10px;
+    border-radius: 4px;
     color: white;
     cursor: pointer;
     font-family:Netflix Sans;
     font-size: 20px;
     align-items: center;
     justify-content: center;
-    margin-top: 45px;
+    margin-top: 28px;
+}
+#tituloCinepop{
+    color: red;
 }
